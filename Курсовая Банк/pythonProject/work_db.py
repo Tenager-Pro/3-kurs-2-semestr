@@ -3,7 +3,7 @@ from User import User
 from config import host, user, password, db_name
 
 
-def get_data_user(phone):
+def get_data_user(phone,user_password):
     try:
         connection = psycopg2.connect(
             host=host,
@@ -17,12 +17,11 @@ def get_data_user(phone):
             cursor.execute(
                 """SELECT * FROM users WHERE phone = '""" + phone + """';"""
             )
-            if cursor.fetchone()==None:
-                print("2")
-                return True
+            check_user = cursor.fetchone()
+            if check_user[5]==user_password:
+                return check_user
             else:
-                print("1")
-                return False
+                return []
     except Exception as _ex:
         connection = False
         print("[INFO] Error while working with PostgreSQL", _ex)
@@ -31,7 +30,31 @@ def get_data_user(phone):
             connection.close()
             print("[INFO] PostgreSQL connection closed")
 
-
+def check_phone_in_db(phone):
+    try:
+        connection = psycopg2.connect(
+            host=host,
+            user=user,
+            password=password,
+            database=db_name
+        )
+        connection.autocommit = True
+        # get data from a table
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """SELECT * FROM users WHERE phone = '""" + phone + """';"""
+            )
+            if cursor.fetchone()==[]:
+                return True
+            else:
+                return False
+    except Exception as _ex:
+        connection = False
+        print("[INFO] Error while working with PostgreSQL", _ex)
+    finally:
+        if connection:
+            connection.close()
+            print("[INFO] PostgreSQL connection closed")
 def set_data_user(user_info):
     # insert data into a table
     try:
@@ -46,9 +69,9 @@ def set_data_user(user_info):
         with connection.cursor() as cursor:
             cursor.execute(
                 """INSERT INTO users (first_name, last_name,phone,email,password) VALUES
-                ('""" + user_info.getFirstName() + """', '""" + user_info.getLastName() + """', 
-                 '""" + user_info.getPhone() + """', '""" + user_info.getEmail() + """', 
-                 '""" + user_info.getPassword() + """');"""
+                ('""" + user_info.get_first_name() + """', '""" + user_info.get_last_name() + """', 
+                 '""" + user_info.get_phone() + """', '""" + user_info.get_email() + """', 
+                 '""" + user_info.get_password() + """');"""
             )
             print("[INFO] Data was succefully inserted")
 
