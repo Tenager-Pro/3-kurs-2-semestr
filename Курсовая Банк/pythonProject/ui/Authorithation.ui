@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>Картинки/bank_78392.ico</normaloff>Картинки/bank_78392.ico</iconset>
+    <normaloff>bank_78392.ico</normaloff>bank_78392.ico</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -48,10 +48,67 @@
       <x>9</x>
       <y>-1</y>
       <width>891</width>
-      <height>761</height>
+      <height>801</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_4">
+     <item row="2" column="1">
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:rgb(255,255,255);</string>
+       </property>
+       <property name="text">
+        <string>Просто-значит лучше</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="0">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../Картинки/1.png</pixmap>
+       </property>
+      </widget>
+     </item>
      <item row="4" column="1">
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="5" column="1">
@@ -254,37 +311,6 @@
        </item>
       </layout>
      </item>
-     <item row="1" column="2">
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:rgb(255,255,255);</string>
-       </property>
-       <property name="text">
-        <string>Просто-значит лучше</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="1">
       <spacer name="verticalSpacer_2">
        <property name="orientation">
@@ -297,29 +323,6 @@
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="1" column="0">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap>Картинки/1.png</pixmap>
-       </property>
-      </widget>
      </item>
      <item row="3" column="1">
       <spacer name="verticalSpacer">
@@ -336,65 +339,6 @@
      </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>900</width>
-     <height>43</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>16</pointsize>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:#FFF</string>
-   </property>
-   <widget class="QMenu" name="menu_2">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>183</y>
-      <width>448</width>
-      <height>114</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>22</pointsize>
-     </font>
-    </property>
-    <property name="title">
-     <string>Уведомления</string>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>Картинки/alert.ico</normaloff>Картинки/alert.ico</iconset>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menuQr">
-    <property name="title">
-     <string>Qr-код</string>
-    </property>
-    <property name="icon">
-     <iconset>
-      <normaloff>Картинки/qr-code.ico</normaloff>Картинки/qr-code.ico</iconset>
-    </property>
-    <addaction name="action"/>
-    <addaction name="action_2"/>
-   </widget>
-   <addaction name="menu_2"/>
-   <addaction name="menuQr"/>
   </widget>
   <action name="action">
    <property name="checkable">

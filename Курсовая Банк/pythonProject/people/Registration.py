@@ -18,7 +18,7 @@ class Ui_Registration(object):
         Registration.setMinimumSize(QtCore.QSize(900, 800))
         Registration.setMaximumSize(QtCore.QSize(900, 800))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("..\\pythonProject\\ui\\Картинки/bank_78392.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../img/bank_78392.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         Registration.setWindowIcon(icon)
         Registration.setStyleSheet("background: rgb(34,106,170); color:rgb(255,255,255);font-size:27px;")
         self.centralwidget = QtWidgets.QWidget(Registration)

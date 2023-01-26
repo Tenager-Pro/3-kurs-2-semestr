@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>bank_78392.ico</file>
+    <file>1.png</file>
+  </qresource>
+</RCC>

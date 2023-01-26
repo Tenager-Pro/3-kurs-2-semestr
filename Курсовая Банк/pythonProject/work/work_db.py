@@ -3,7 +3,7 @@ from User import User
 from config import host, user, password, db_name
 
 
-def get_data_user(phone,user_password):
+def get_data_user(phone):
     try:
         connection = psycopg2.connect(
             host=host,
@@ -17,11 +17,9 @@ def get_data_user(phone,user_password):
             cursor.execute(
                 """SELECT * FROM users WHERE phone = '""" + phone + """';"""
             )
-            check_user = cursor.fetchone()
-            if check_user[5]==user_password:
-                return check_user
-            else:
-                return []
+            check_user = cursor.fetchall()
+            return check_user
+
     except Exception as _ex:
         connection = False
         print("[INFO] Error while working with PostgreSQL", _ex)

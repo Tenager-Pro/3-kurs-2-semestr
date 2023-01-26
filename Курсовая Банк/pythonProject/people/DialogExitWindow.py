@@ -17,7 +17,7 @@ class Ui_DialogExitWindow(object):
         DialogExitWindow.setWindowModality(QtCore.Qt.ApplicationModal)
         DialogExitWindow.resize(400, 240)
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("..\\pythonProject\\ui\\Картинки/bank_78392.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap("../img/bank_78392.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         DialogExitWindow.setWindowIcon(icon)
         DialogExitWindow.setStyleSheet("background: rgb(34,106,170)")
         self.gridLayoutWidget = QtWidgets.QWidget(DialogExitWindow)

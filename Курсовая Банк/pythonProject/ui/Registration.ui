@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>Картинки/bank_78392.ico</normaloff>Картинки/bank_78392.ico</iconset>
+    <normaloff>../Картинки/bank_78392.ico</normaloff>../Картинки/bank_78392.ico</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background: rgb(34,106,170); color:rgb(255,255,255);font-size:27px;</string>
