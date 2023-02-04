@@ -1,7 +1,7 @@
 import psycopg2
 from User import User
 from config import host, user, password, db_name
-
+from PyQt5.QtWidgets import QMessageBox
 
 def get_data_user(phone):
     try:
@@ -53,8 +53,10 @@ def check_phone_in_db(phone):
         if connection:
             connection.close()
             print("[INFO] PostgreSQL connection closed")
-def set_data_user(user_info):
+
+def set_data_account(name,count_month,percentage,min_sum,is_replenishment,is_withdrawal):
     # insert data into a table
+    print(is_replenishment)
     try:
         connection = psycopg2.connect(
             host=host,
@@ -66,12 +68,18 @@ def set_data_user(user_info):
 
         with connection.cursor() as cursor:
             cursor.execute(
-                """INSERT INTO users (first_name, last_name,phone,email,password) VALUES
-                ('""" + user_info.get_first_name() + """', '""" + user_info.get_last_name() + """', 
-                 '""" + user_info.get_phone() + """', '""" + user_info.get_email() + """', 
-                 '""" + user_info.get_password() + """');"""
+                """INSERT INTO condition_account (name,count_month,percentage,min_sum,is_replenishment,is_withdrawal) VALUES
+                ('""" + name + """', '""" + count_month + """', 
+                 '""" + percentage + """', '""" + min_sum + """', 
+                 '""" + str(is_replenishment) + """', '""" + str(is_withdrawal) + """');"""
             )
             print("[INFO] Data was succefully inserted")
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("Info")
+            msg.setInformativeText('Счет создан')
+            msg.setWindowTitle("Info")
+            msg.exec_()
 
     except Exception as _ex:
         connection = False
