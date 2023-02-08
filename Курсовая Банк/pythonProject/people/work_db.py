@@ -15,7 +15,17 @@ def get_data_user(phone,user_password):
         # get data from a table
         with connection.cursor() as cursor:
             cursor.execute(
-                """SELECT * FROM users WHERE phone = """ + phone + """;"""
+                """SELECT 
+                id,
+                first_name,
+                last_name,
+                phone,
+                email,
+                password 
+                FROM 
+                users 
+                WHERE 
+                phone = """ + phone + """;"""
             )
             check_user = cursor.fetchone()
             if check_user[5]==user_password:

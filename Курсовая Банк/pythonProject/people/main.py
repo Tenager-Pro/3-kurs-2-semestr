@@ -16,6 +16,7 @@ from CreateAccount import *
 from Money import *
 from Converting import *
 from FunctionMoney import *
+from FunctionMenu import *
 from Account import *
 from FunctionRegistration import check
 from datetime import date
@@ -175,6 +176,15 @@ class Menu(QtWidgets.QMainWindow):
         self.ui.push_button_exit.clicked.connect(self.exit)
         self.ui.add_accounting_button.clicked.connect(self.add_accouting)
         self.ui.translate_button.clicked.connect(self.translate)
+        #self.ui.list_account.currentTextChanged.connect(self.information_about_account) на будущее можно сделать вывод информации о вкладе в визарде
+
+
+
+    def add_item_account_widget(self):
+        list_account=get_list_account(self.id)
+        for account in list_account:
+            str_account = "Название: " + account[0] + "\nНомер счета: " + account[1] +"\nБаланс: " + account[2]
+            self.ui.list_account.addItem(str_account)
 
     def translate(self):
         translate_in_your_account.show()
@@ -189,7 +199,7 @@ class Menu(QtWidgets.QMainWindow):
         menu.setEnabled(False)
 
     def set_name(self, name):
-        self.ui.label_name.setText(name + ",")
+        self.ui.label_name.setText("Добро пожаловать, " + name + ",")
         self.name = name
 
     def set_id(self, id):
@@ -238,6 +248,7 @@ def authorithation_people(phone, password):
             if user != []:
                 menu.set_name(user[1])
                 menu.set_id(user[0])
+                menu.add_item_account_widget()
                 menu.show()
                 autho.close()
 
