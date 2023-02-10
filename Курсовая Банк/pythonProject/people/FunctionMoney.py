@@ -52,7 +52,6 @@ def set_data_account(account):
             cursor.execute(insert_query, item_tuple)
 
             print("[INFO] Data was succefully inserted")
-            print("[INFO] Счет создан")
     except Exception as _ex:
         connection = False
         print("[INFO] Error while working with PostgreSQL", _ex)

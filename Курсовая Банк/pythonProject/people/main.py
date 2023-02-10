@@ -9,6 +9,8 @@ from PyQt5.QtWidgets import QMessageBox
 from Authorithation import *
 from Registration import *
 from Menu import *
+from FunctionHistory import *
+from History import *
 from TranslateInAccount import *
 from TranslateInYourAccount import *
 from DialogExitWindow import *
@@ -164,6 +166,43 @@ class CreateAccount(QtWidgets.QMainWindow):
         menu.show()
         create_account.close()
 
+class History(QtWidgets.QMainWindow):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_History()
+        self.ui.setupUi(self)
+        self.id = 0
+        self.ui.name_account.currentTextChanged.connect(self.add_data_in_list_history)
+        self.ui.menu_button.clicked.connect(self.open_menu)
+
+    def open_menu(self):
+        menu.show()
+        history.close()
+    def add_account_combo_box(self):
+        self.data_account=get_account_user_id(self.id)
+        self.ui.name_account.addItem("Все")
+        for account in self.data_account:
+            self.ui.name_account.addItem(account[0])
+
+    def add_data_in_list_history(self, text):
+        self.ui.list_history.clear()
+        list_history = get_list_history_all(self.id) if text == "Все" else get_list_history_about_account(self.id,text)
+        if list_history != None:
+            for operation in list_history:
+                date = operation[3].strftime("%B %d, %Y")
+                message = "Пополнение: " if (convert_money_in_decimal(operation[2]) - convert_money_in_decimal(
+                    operation[1])) > 0 else "Списание: "
+                str_account = "Название: " + operation[0] + "\nБыло: " + operation[1] + "\nСтало: " + operation[
+                    2] + "\n" + message + str(
+                    convert_money_in_decimal(operation[2]) - convert_money_in_decimal(operation[1])) + "\nДата: " + date
+                self.ui.list_history.addItem(str_account)
+
+    def add_account(self, data_account):
+        self.data_account=data_account
+        self.ui.name_account.addItem("Все")
+        for account in data_account:
+            self.ui.name_account.addItem(account[6])
+
 
 class Menu(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
@@ -176,15 +215,28 @@ class Menu(QtWidgets.QMainWindow):
         self.ui.push_button_exit.clicked.connect(self.exit)
         self.ui.add_accounting_button.clicked.connect(self.add_accouting)
         self.ui.translate_button.clicked.connect(self.translate)
+        self.ui.history_button.clicked.connect(self.open_history)
         #self.ui.list_account.currentTextChanged.connect(self.information_about_account) на будущее можно сделать вывод информации о вкладе в визарде
 
-
+    def open_history(self):
+        history.id = self.id
+        history.add_account_combo_box()
+        history.show()
+        menu.close()
 
     def add_item_account_widget(self):
         list_account=get_list_account(self.id)
         for account in list_account:
             str_account = "Название: " + account[0] + "\nНомер счета: " + account[1] +"\nБаланс: " + account[2]
             self.ui.list_account.addItem(str_account)
+
+    def add_item_list_history(self):
+        list_history=get_list_history(self.id)
+        for operation in list_history:
+            date=operation[3].strftime("%B %d, %Y")
+            message = "Пополнение: " if (convert_money_in_decimal(operation[2])-convert_money_in_decimal(operation[1]))>0 else "Списание: "
+            str_account = "Название: " + operation[0] + "\nБыло: " + operation[1] +"\nСтало: " + operation[2]+"\n"+message+str(convert_money_in_decimal(operation[2])-convert_money_in_decimal(operation[1]))+"\nДата: "+date
+            self.ui.list_history.addItem(str_account)
 
     def translate(self):
         translate_in_your_account.show()
@@ -248,6 +300,7 @@ def authorithation_people(phone, password):
             if user != []:
                 menu.set_name(user[1])
                 menu.set_id(user[0])
+                menu.add_item_list_history()
                 menu.add_item_account_widget()
                 menu.show()
                 autho.close()
@@ -268,17 +321,25 @@ def authorithation_people(phone, password):
             msg.exec_()
 
 
+
+
+
+
+
+
 # Main
 if __name__ == "__main__":
     name = ""
     app = QtWidgets.QApplication(sys.argv)
     reg = Registration()
     money= Money()
+
     create_account=CreateAccount()
     translate_in_account = TranslateInAccount()
     translate_in_your_account = TranslateInYourAccount()
     dialog_exit = DialogExitWindow()
     autho = Authorithation()
+    history = History()
     menu = Menu()
     autho.show()
     sys.exit(app.exec_())
