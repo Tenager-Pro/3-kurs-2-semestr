@@ -1,34 +1,29 @@
 package models;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+
+import java.util.ArrayList;
+import java.util.List;
+import jakarta.persistence.*;
+import java.sql.Date;
 
 @Entity
-@Table
-public class Patient {
-    @Id
-    @GeneratedValue
-    private Integer id;
-    private String firstName;
-    private Integer age;
+@Table (name = "patients")
+public class Patient extends BaseEntity{
 
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name="phone_number", length=16, nullable=true)
+    private String phoneNumber;
+    @Column(name = "birth_date", nullable=false)
+    private Date birthDate;
+
+    @Column(name = "patient_card")
+    private Integer patientCard;
     public Patient() {}
 
-    public Patient(Integer id, String firstName, Integer age) {
-        super();
-        this.id = id;
-        this.firstName = firstName;
-        this.age = age;
+    public void addContract(Contract contract) {
+        contract.setPatient(this);
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
@@ -38,11 +33,33 @@ public class Patient {
         this.firstName = firstName;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate){
+        this.birthDate = birthDate;
+    }
+
+    public Integer getPatientCard() {
+        return patientCard;
+    }
+
+    public void setPatientCard(Integer patientCard){
+        this.patientCard = patientCard;
+    }
+    @Override
+    public String toString() {
+        return "models.User{" +
+                "id=" + id +
+                ", name='" + firstName + '\''+ '}';
     }
 }
