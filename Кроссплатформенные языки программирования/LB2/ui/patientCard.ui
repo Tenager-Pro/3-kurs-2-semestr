@@ -39,7 +39,7 @@
      <item row="7" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="buttonDelete">
          <property name="font">
           <font>
            <pointsize>14</pointsize>
@@ -51,7 +51,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="buttonChange">
          <property name="font">
           <font>
            <pointsize>14</pointsize>
@@ -63,7 +63,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="buttonAdd">
          <property name="font">
           <font>
            <pointsize>14</pointsize>

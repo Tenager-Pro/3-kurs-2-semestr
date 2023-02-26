@@ -23,6 +23,11 @@
       <height>531</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
@@ -30,7 +35,7 @@
       <x>19</x>
       <y>10</y>
       <width>761</width>
-      <height>31</height>
+      <height>44</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -39,6 +44,11 @@
      </item>
      <item>
       <widget class="QPushButton" name="buttonSearcId">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>Искать</string>
        </property>
@@ -46,6 +56,11 @@
      </item>
      <item>
       <widget class="QComboBox" name="comboTable">
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
        <property name="sizeAdjustPolicy">
         <enum>QComboBox::AdjustToContents</enum>
        </property>

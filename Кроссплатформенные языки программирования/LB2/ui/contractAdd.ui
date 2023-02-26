@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Contract</class>
- <widget class="QMainWindow" name="Contract">
+ <class>ContractAdd</class>
+ <widget class="QMainWindow" name="ContractAdd">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -99,31 +99,19 @@
      <item row="4" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="buttonBack">
          <property name="font">
           <font>
            <pointsize>14</pointsize>
           </font>
          </property>
          <property name="text">
-          <string>Удалить</string>
+          <string>Назад</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="font">
-          <font>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Изменить</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="buttonAdd">
          <property name="font">
           <font>
            <pointsize>14</pointsize>
