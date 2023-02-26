@@ -1,0 +1,31 @@
+CREATE TABLE doctors (
+    id                                serial not null PRIMARY KEY,
+    name                              VarChar(255),
+    ratio                          double precision,
+    post                           	VarChar(255),
+    phone_number                     VarChar(255)
+);
+CREATE TABLE patient_cards (
+    id                                serial not null PRIMARY KEY,
+    number_card                          VarChar(255),
+    create_date                          date,
+    name_proc                       	VarChar(255),
+	price								double precision,
+	doctor_id							INTEGER REFERENCES doctors (id) ON UPDATE NO ACTION,
+	contract_id				INTEGER REFERENCES contracts (id) ON UPDATE NO ACTION,
+);
+
+CREATE TABLE patients (
+    id                                serial not null PRIMARY KEY,
+    name                          VarChar(255),
+    phone_number                          VarChar(17),
+    birth_date                       	date
+);
+
+CREATE TABLE contracts (
+    id                                serial not null PRIMARY KEY,
+    number_contract                     VarChar(255),
+    total_cost                          INTEGER,
+    create_date                       	date,
+	patient_id							INTEGER REFERENCES patients (id) ON UPDATE NO ACTION
+);

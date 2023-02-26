@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/scale"
+        android:title="Масштабирование"/>
+    <item
+        android:id="@+id/alfa"
+        android:title="Изменение прозрачности"/>
+    <item
+        android:id="@+id/tranclate"
+        android:title="Перемещение"/>
+</menu>

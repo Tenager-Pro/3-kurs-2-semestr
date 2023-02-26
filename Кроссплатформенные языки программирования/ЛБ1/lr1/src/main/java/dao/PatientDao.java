@@ -37,12 +37,14 @@ public class PatientDao {
         session.close();
     }
 
-    public Contract findContractById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Contract.class, id);
-    }
+//    public Contract findContractById(int id) {
+//        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Contract.class, id);
+//    }
 
     public List<Patient> findAll() {
-        List<Patient> patients = (List<Patient>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("FROM Patient").list();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        List<Patient> patients = (List<Patient>)  session.createQuery("FROM Patient").list();
+        session.close();
         return patients;
     }
 }

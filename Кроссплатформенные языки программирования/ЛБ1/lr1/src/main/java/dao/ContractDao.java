@@ -35,7 +35,9 @@ public class ContractDao {
     }
 
     public List<Contract> findAll() {
-        List<Contract> contracts = (List<Contract>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From Contract").list();
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        List<Contract> contracts = (List<Contract>)  session.createQuery("From Contract").list();
+        session.close();
         return contracts;
     }
 

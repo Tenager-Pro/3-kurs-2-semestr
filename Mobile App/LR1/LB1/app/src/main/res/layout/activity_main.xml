@@ -27,6 +27,7 @@
         android:layout_marginTop="6dp"
         android:text="TextView1"
         android:textColor="#FF0000"
+        android:background="#FFFFFF"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,6 +42,7 @@
         android:shadowDy="10"
         android:shadowRadius="2"
         android:text="Москва"
+        android:textSize="40dp"
         android:textColor="#9C27B0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

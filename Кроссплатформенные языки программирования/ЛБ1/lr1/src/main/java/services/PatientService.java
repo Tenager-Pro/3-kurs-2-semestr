@@ -8,7 +8,7 @@ import java.util.List;
 
 public class PatientService {
 
-    private PatientDao patientsDao = new PatientDao();
+    private static PatientDao patientsDao = new PatientDao();
 
     public PatientService() {
     }
@@ -33,9 +33,9 @@ public class PatientService {
         return patientsDao.findAll();
     }
 
-    public Contract findPatientById(int id) {
-        return patientsDao.findContractById(id);
-    }
+//    public Contract findPatientById(int id) {
+//        return patientsDao.findContractById(id);
+//    }
 
 
 }

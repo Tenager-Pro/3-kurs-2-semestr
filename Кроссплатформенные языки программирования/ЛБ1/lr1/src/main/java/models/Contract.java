@@ -12,19 +12,33 @@ public class Contract extends BaseEntity{
 
     //можно не указывать Column name, если оно совпадает с названием столбца в таблице
     @Column (name = "total_cost")
-    private double totalCost;
+    private int totalCost;
 
     @Column (name = "create_date")
     private Date createDate;
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "contract", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "service_ids")
-    private List<Service> services;
+    @OneToMany(mappedBy = "contract")
+    private List<PatientCard> patientCards;
+
+    public Contract(int id, String numberContract, int totalCost, Date createDate, Patient patient, List<PatientCard> patientCards) {
+        this.id = id;
+        this.numberContract = numberContract;
+        this.totalCost = totalCost;
+        this.createDate = createDate;
+        this.patient = patient;
+        this.patientCards = patientCards;
+    }
+    public Contract(String numberContract, int totalCost, Date createDate, Patient patient, List<PatientCard> patientCards) {
+        this.numberContract = numberContract;
+        this.totalCost = totalCost;
+        this.createDate = createDate;
+        this.patient = patient;
+        this.patientCards = patientCards;
+    }
 
     public Contract() {
     }
@@ -45,11 +59,11 @@ public class Contract extends BaseEntity{
         this.numberContract = numberContract;
     }
 
-    public double getTotalCost() {
+    public int getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(double totalCost) {
+    public void setTotalCost(int totalCost) {
         this.totalCost = totalCost;
     }
 
@@ -61,12 +75,12 @@ public class Contract extends BaseEntity{
         this.patient = patient;
     }
 
-    public List<Service> getServices() {
-        return services;
+    public List<PatientCard> getPatientCards() {
+        return patientCards;
     }
 
-    public void setServices(List<Service> services) {
-        this.services = services;
+    public void setPatientCard(List<PatientCard> patientCards) {
+        this.patientCards = patientCards;
     }
     @Override
     public String toString() {

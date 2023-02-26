@@ -2,6 +2,8 @@ package utils;
 
 import models.Patient;
 import models.Contract;
+import models.PatientCard;
+import models.Doctor;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -17,6 +19,8 @@ public class HibernateSessionFactoryUtil {
                 Configuration configuration = new Configuration().configure();
                 configuration.addAnnotatedClass(Contract.class);
                 configuration.addAnnotatedClass(Patient.class);
+                configuration.addAnnotatedClass(PatientCard.class);
+                configuration.addAnnotatedClass(Doctor.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
 

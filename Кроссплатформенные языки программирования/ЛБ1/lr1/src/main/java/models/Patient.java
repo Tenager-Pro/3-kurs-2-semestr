@@ -9,28 +9,38 @@ import java.sql.Date;
 @Table (name = "patients")
 public class Patient extends BaseEntity{
 
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "name")
+    private String name;
     @Column(name="phone_number", length=16, nullable=true)
     private String phoneNumber;
     @Column(name = "birth_date", nullable=false)
     private Date birthDate;
 
-    @Column(name = "patient_card")
-    private Integer patientCard;
     public Patient() {}
+
+    public Patient(int id,String name,String phoneNumber,Date birthDate) {
+        this.id =id;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.birthDate = birthDate;
+    }
+    public Patient(String name,String phoneNumber,Date birthDate) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.birthDate = birthDate;
+    }
 
     public void addContract(Contract contract) {
         contract.setPatient(this);
     }
 
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPhoneNumber() {
@@ -49,17 +59,10 @@ public class Patient extends BaseEntity{
         this.birthDate = birthDate;
     }
 
-    public Integer getPatientCard() {
-        return patientCard;
-    }
-
-    public void setPatientCard(Integer patientCard){
-        this.patientCard = patientCard;
-    }
     @Override
     public String toString() {
         return "models.User{" +
                 "id=" + id +
-                ", name='" + firstName + '\''+ '}';
+                ", name='" + name + '\''+ '}';
     }
 }
