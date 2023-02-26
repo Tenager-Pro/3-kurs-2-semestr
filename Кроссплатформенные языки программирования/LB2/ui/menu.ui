@@ -14,21 +14,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QListView" name="listData">
-    <property name="geometry">
-     <rect>
-      <x>15</x>
-      <y>51</y>
-      <width>771</width>
-      <height>531</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
@@ -67,6 +52,16 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>61</y>
+      <width>771</width>
+      <height>531</height>
+     </rect>
+    </property>
    </widget>
   </widget>
  </widget>
