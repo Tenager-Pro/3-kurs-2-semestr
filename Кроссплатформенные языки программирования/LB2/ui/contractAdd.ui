@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>250</height>
+    <height>410</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <x>9</x>
       <y>9</y>
       <width>781</width>
-      <height>221</height>
+      <height>391</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -36,12 +36,15 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QComboBox" name="comboPatient">
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_5">
        <property name="font">
         <font>
          <pointsize>14</pointsize>
         </font>
+       </property>
+       <property name="text">
+        <string>Пациент</string>
        </property>
       </widget>
      </item>
@@ -57,46 +60,7 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_5">
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>Пациент</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="numberContract">
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLineEdit" name="createDate">
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="totalCost">
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-        </font>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0" colspan="2">
+     <item row="5" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QPushButton" name="buttonBack">
@@ -124,6 +88,33 @@
        </item>
       </layout>
      </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="createDate">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="totalCost">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QComboBox" name="comboPatient">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
        <property name="font">
@@ -135,6 +126,18 @@
         <string>Дата</string>
        </property>
       </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="numberContract">
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0" colspan="2">
+      <widget class="QListWidget" name="listWidget_2"/>
      </item>
     </layout>
    </widget>

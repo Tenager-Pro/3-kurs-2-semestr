@@ -32,6 +32,12 @@ class Ui_MainWindow(object):
         self.buttonSearcId.setFont(font)
         self.buttonSearcId.setObjectName("buttonSearcId")
         self.horizontalLayout.addWidget(self.buttonSearcId)
+        self.buttonAdd = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.buttonAdd.setFont(font)
+        self.buttonAdd.setObjectName("buttonAdd")
+        self.horizontalLayout.addWidget(self.buttonAdd)
         self.comboTable = QtWidgets.QComboBox(self.horizontalLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(8)
@@ -51,6 +57,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.buttonSearcId.setText(_translate("MainWindow", "Искать"))
+        self.buttonAdd.setText(_translate("MainWindow", "Добавить"))
 
 
 if __name__ == "__main__":
