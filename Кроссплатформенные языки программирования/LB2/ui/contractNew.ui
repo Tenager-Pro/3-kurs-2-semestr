@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ContractAdd</class>
- <widget class="QMainWindow" name="ContractAdd">
+ <class>Contract</class>
+ <widget class="QMainWindow" name="Contract">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -63,14 +63,26 @@
      <item row="5" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="buttonBack">
+        <widget class="QPushButton" name="buttonDelete">
          <property name="font">
           <font>
            <pointsize>14</pointsize>
           </font>
          </property>
          <property name="text">
-          <string>Назад</string>
+          <string>Удалить</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="buttonChange">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Изменить</string>
          </property>
         </widget>
        </item>
