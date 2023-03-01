@@ -295,6 +295,31 @@ def set_data_contract(number_contract,total_cost,create_date,patient_id):
             connection.close()
             print("[INFO] PostgreSQL connection closed")
 
+def delete_data_contract_patient_card(id):
+    try:
+        connection = psycopg2.connect(
+            host=host,
+            user=user,
+            password=password,
+            database=db_name
+        )
+        connection.autocommit = True
+
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """Delete from patient_cards 
+                Where contract_id = """ + id + """;"""
+            )
+            print("[INFO] Data was succefully delete")
+
+    except Exception as _ex:
+        connection = False
+        print("[INFO] Error while working with PostgreSQL", _ex)
+    finally:
+        if connection:
+            connection.close()
+            print("[INFO] PostgreSQL connection closed")
+
 def delete_data_contract(id):
     try:
         connection = psycopg2.connect(

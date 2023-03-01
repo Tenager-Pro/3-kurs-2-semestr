@@ -8,6 +8,8 @@ from re import sub
 from decimal import Decimal
 from PyQt5.QtWidgets import QMessageBox
 from datetime import date
+from  Autho import *
+from autho_db import *
 from patient_db import *
 from contract_db import *
 from doctor_db import *
@@ -309,8 +311,10 @@ class Contract(QtWidgets.QMainWindow):
         menu.show()
 
     def delete(self):
-        patientCard.close()
-        delete_data_patient_card(self.id)
+        contract.close()
+        delete_data_contract_patient_card(self.id)
+        delete_data_contract(self.id)
+
         menu.set_new_data("Контракты")
         menu.show()
 
@@ -468,11 +472,33 @@ class PatientCardAdd(QtWidgets.QMainWindow):
     def set_contract_id(self,text):
         self.contract_str = text
 
+class Autho(QtWidgets.QMainWindow):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_Autho()
+        self.ui.setupUi(self)
+        self.ui.pushButton.clicked.connect(self.authoriz)
+
+    def authoriz(self):
+
+        check = get_data_patient_for_autho(self.ui.login.text(), self.ui.password.text())
+        if check:
+            authori.close()
+            menu.show()
+        else:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText("Авторизация:")
+            msg.setInformativeText('Пользователя с таким номером или паролем не существует')
+            msg.setWindowTitle("Error")
+            msg.exec_()
+
 
 if __name__ == "__main__":
     name = ""
     app = QtWidgets.QApplication(sys.argv)
 
+    authori = Autho()
     menu = Menu()
     contract = Contract()
     contractAdd = ContractAdd()
@@ -482,5 +508,5 @@ if __name__ == "__main__":
     patientAdd = PatientAdd()
     patientCard = PatientCard()
     patientCardAdd = PatientCardAdd()
-    menu.show()
+    authori.show()
     sys.exit(app.exec_())
