@@ -1,3 +1,4 @@
+import datetime
 import sys
 from PyQt5 import uic
 from PyQt5 import QtWidgets
@@ -59,17 +60,21 @@ class Menu(QtWidgets.QMainWindow):
             contract_list = contract_str.split(" ")
             print(contract_list)
             menu.close()
-            doctor.id = contract_list[1]
-            search_contract = get_data_doctor_id(doctor.id)
-            doctor.set_new_data(search_contract)
+            contract.id = contract_list[1]
+            search_contract = get_data_contract_id(contract.id)
+            contract.set_new_data(search_contract)
+            contract.add_patient_card()
+            contract.show()
+
         else:
             patient_card_str = item.text()
             patient_card_list = patient_card_str.split(" ")
             print(patient_card_list)
             menu.close()
             patientCard.id = patient_card_list[1]
-            search_patient_card = get_data_patient_card_id(doctor.id)
+            search_patient_card = get_data_patient_card_id(patientCard.id)
             patientCard.set_new_data(search_patient_card)
+            patientCard.show()
 
 
     def add_data(self):
@@ -111,6 +116,25 @@ class Menu(QtWidgets.QMainWindow):
             self.ui.listWidget.clear()
             data_list = get_data_contract()
 
+            for contract_data in data_list:
+                list = get_data_patient_card_in_contract_name_proc(str(contract_data[0]))
+                list_price = get_data_patient_card_in_contract_price(str(contract_data[0]))
+                price=0
+                for cost in list_price:
+                    price = price+cost[0]
+                if price:
+                    update_data_price(str(contract_data[0]), price)
+                if list:
+                    str_name_proc = ""
+                    for element in list:
+                        str_name_proc = str_name_proc + str(element[0]) + " "
+                else:
+                    str_name_proc = ""
+                date = contract_data[3].strftime("%m %d %Y")
+                str_contract_data = "Id: "+str(contract_data[0]) +" \nНомер контракта: " + contract_data[1] + " \nИтог: " + str(contract_data[2]) +" \nДата:" + date \
+                                  + " \nСписок процедур: " + str_name_proc
+                self.ui.listWidget.addItem(str_contract_data)
+
 
         else:
             self.text = text
@@ -118,80 +142,13 @@ class Menu(QtWidgets.QMainWindow):
             data_list = get_data_patient_card()
             for patient_card_data in data_list:
                 date = patient_card_data[2].strftime("%m %d %Y")
-                str_patient_card_data = "Номер карты: " + patient_card_data[1] + "\nДата: " + date + "\nНазвание процедуры: " + \
-                                   patient_card_data[3] + "Цена за услгу\n" + str(patient_card_data[4])  + "\nДоктор: " + str(patient_card_data[5]) + \
-                                   "Контракт" + str(patient_card_data[6]) + "Итоговая цена" + str(patient_card_data[7])
+                str_patient_card_data = "Id: "+str(patient_card_data[0])+" \nНомер карты: " + patient_card_data[1] + " \nДата: " + date + " \nНазвание процедуры: " + \
+                                   patient_card_data[3] + " \nЦена за услгу" + str(patient_card_data[4])  + " \nДоктор: " + str(patient_card_data[5]) + \
+                                   " \nКонтракт" + str(patient_card_data[6]) + " \nИтоговая цена" + str(patient_card_data[7])
                 self.ui.listWidget.addItem(str_patient_card_data)
 
 
 
-class Contract(QtWidgets.QMainWindow):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.ui = Ui_Contract()
-        self.ui.setupUi(self)
-        self.id = ""
-        self.patient_str = ""
-        self.ui.totalCost.setText("0")
-        self.ui.buttonAdd.clicked.connect(self.add_new_data)
-        self.ui.buttonChange.clicked.connect(self.change)
-        self.ui.buttonDelete.clicked.connect(self.delete)
-
-    def add_patient(self):
-        data_patient = get_name_patient()
-        if data_patient:
-            for new_patient in data_patient:
-                self.ui.comboPatient.addItem(str(new_patient[0])+" "+new_patient[1])
-    def add_new_data(self):
-        contract.close()
-        contractAdd.show()
-
-    def change(self):
-        contract.close()
-        day = parser.parse(self.ui.createDate.text())
-        update_doctor = self.doctor_str.split(" ")
-        update_contract = self.contract_str.split(" ")
-        update_data_patient_card(self.id, self.ui.numberCard.text(), day, self.ui.nameProc.text(),
-                                 self.ui.price.text(), update_doctor[0], update_contract[0], self.ui.totalPrice.text())
-        menu.set_new_data("Контракты")
-        menu.show()
-
-    def delete(self):
-        patientCard.close()
-        delete_data_patient_card(self.id)
-        menu.set_new_data("Контракты")
-        menu.show()
-
-
-class ContractAdd(QtWidgets.QMainWindow):
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.ui = Ui_ContractAdd()
-        self.ui.setupUi(self)
-        self.id = ""
-        self.patient_str = ""
-        self.ui.totalCost.setText("0")
-        self.ui.createDate
-        self.ui.buttonBack.clicked.connect(self.back)
-        self.ui.buttonAdd.clicked.connect(self.add_new_data)
-
-    def add_patient(self):
-        data_patient = get_name_patient()
-        if data_patient:
-            for new_patient in data_patient:
-                self.ui.comboPatient.addItem(str(new_patient[0])+" "+new_patient[1])
-    def back(self):
-        contractAdd.close()
-        menu.show
-
-
-    def add_new_data(self):
-        contractAdd.close()
-        update_patient = self.patient_str.split(" ")
-        day = parser.parse(self.ui.createDate.text())
-        set_data_contract(self.ui.numberContract.text(), self.ui.totalCost.text(),day, update_patient[0])
-        menu.set_new_data("Контракты")
-        menu.show()
 
 class Doctor(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
@@ -297,6 +254,99 @@ class PatientAdd(QtWidgets.QMainWindow):
         menu.set_new_data("Пациенты")
         menu.show()
 
+class Contract(QtWidgets.QMainWindow):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_Contract()
+        self.ui.setupUi(self)
+        self.id = ""
+        self.patient_str = ""
+        self.total_cost = 0
+        self.ui.totalCost.setText(str(self.total_cost))
+        self.ui.buttonAdd.clicked.connect(self.add_new_data)
+        self.ui.buttonChange.clicked.connect(self.change)
+        self.ui.buttonDelete.clicked.connect(self.delete)
+
+    def set_new_data(self,search_contract):
+        if search_contract:
+            for new_contract in search_contract:
+                date = new_contract[3].strftime("%m %d %Y")
+                self.ui.numberContract.setText(new_contract[1])
+                self.ui.totalCost.setText(str(new_contract[2]))
+                self.ui.createDate.setText(date)
+                self.add_patient()
+    def add_patient_card(self):
+        self.ui.listWidget.clear()
+        data_list = get_data_patient_card_in_contract(self.id)
+        print(data_list)
+        if data_list:
+            for patient_card_data in data_list:
+                date = patient_card_data[2].strftime("%m %d %Y")
+                str_patient_card_data = "Id: "+str(patient_card_data[0])+" \nНомер карты: " + patient_card_data[
+                    1] + " \nДата: " + date + "\nНазвание процедуры: " + \
+                                        patient_card_data[3] + " \nЦена за услгу" + str(
+                    patient_card_data[4]) + " \nДоктор: " + str(patient_card_data[5]) + \
+                                        " \nКонтракт" + str(patient_card_data[6]) + " \nИтоговая цена" + str(patient_card_data[7])
+                self.ui.listWidget.addItem(str_patient_card_data)
+    def add_patient(self):
+        data_patient = get_name_patient()
+        if data_patient:
+            for new_patient in data_patient:
+                self.ui.comboPatient.addItem(str(new_patient[0])+" "+new_patient[1])
+    def add_new_data(self):
+        contract.close()
+        contractAdd.add_patient()
+        contractAdd.show()
+
+    def change(self):
+        contract.close()
+        day = parser.parse(self.ui.createDate.text())
+        patient_str = self.ui.comboPatient.currentText()
+        update_patient = patient_str.split(" ")
+        update_data_contract(self.id, self.ui.numberContract.text(),
+                                 self.ui.totalCost.text(), day, update_patient[0])
+        menu.set_new_data("Контракты")
+        menu.show()
+
+    def delete(self):
+        patientCard.close()
+        delete_data_patient_card(self.id)
+        menu.set_new_data("Контракты")
+        menu.show()
+
+
+class ContractAdd(QtWidgets.QMainWindow):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_ContractAdd()
+        self.ui.setupUi(self)
+        self.id = ""
+        self.patient_str = ""
+        day = datetime.datetime.today()
+        date = day.strftime("%m %d %Y")
+        self.ui.createDate.setText(str(date))
+        self.ui.totalCost.setText("0")
+        self.ui.buttonBack.clicked.connect(self.back)
+        self.ui.buttonAdd.clicked.connect(self.add_new_data)
+
+    def add_patient(self):
+        data_patient = get_name_patient()
+        if data_patient:
+            for new_patient in data_patient:
+                self.ui.comboPatient.addItem(str(new_patient[0])+" "+new_patient[1])
+    def back(self):
+        contractAdd.close()
+        menu.show()
+
+
+    def add_new_data(self):
+        contractAdd.close()
+        update_patient = self.patient_str.split(" ")
+        day = parser.parse(self.ui.createDate.text())
+        set_data_contract(self.ui.numberContract.text(), self.ui.totalCost.text(),day, update_patient[0])
+        menu.set_new_data("Контракты")
+        menu.show()
+
 class PatientCard(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -355,6 +405,8 @@ class PatientCard(QtWidgets.QMainWindow):
         menu.show()
 
     def set_new_data(self, search_patient_card):
+        self.add_doctor()
+        self.add_contract()
         if search_patient_card:
             for new_patient_card in search_patient_card:
                 date = new_patient_card[2].strftime("%m %d %Y")
@@ -362,8 +414,8 @@ class PatientCard(QtWidgets.QMainWindow):
                 self.ui.createDate.setText(date)
                 self.ui.nameProc.setText(new_patient_card[3])
                 self.ui.price.setText(str(new_patient_card[4]))
-                self.ui.comboDoctor.setText(str(new_patient_card[5]))
-                self.ui.comboContract.setText(str(new_patient_card[6]))
+                self.ui.comboDoctor.addItem(str(new_patient_card[5]))
+                self.ui.comboContract.addItem(str(new_patient_card[6]))
                 self.ui.totalPrice.setText(str(new_patient_card[7]))
 
 class PatientCardAdd(QtWidgets.QMainWindow):

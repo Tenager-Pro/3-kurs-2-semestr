@@ -174,6 +174,7 @@ def update_data_patient_card(id,number_card,create_date,name_proc,price,doctor_i
         connection.autocommit = True
         # get data from a table
         with connection.cursor() as cursor:
+            print()
             cursor.execute(
                 """Update 
                 patient_cards 
@@ -181,10 +182,10 @@ def update_data_patient_card(id,number_card,create_date,name_proc,price,doctor_i
                 number_card= '"""+number_card+"""',
                 create_date = '"""+str(create_date)+"""',
                 name_proc= '"""+name_proc+"""',
-                price = '"""+price+""""',
-                doctor_id = '"""+doctor_id+""""',
-                contract_id = '"""+contract_id+""""',
-                total_price = '"""+total_price+""""'
+                price = """+str(price)+""",
+                doctor_id = """+str(doctor_id)+""",
+                contract_id = """+str(contract_id)+""",
+                total_price = """+str(total_price)+"""
                 where
                 id = """ + str(id) + """;"""
             )
