@@ -4,6 +4,7 @@ import java.util.List;
 
 import dao.ContractDao;
 import models.Contract;
+import models.PatientCard;
 
 
 public class ContractService {
@@ -31,6 +32,10 @@ public class ContractService {
 
     public List<Contract> findAllContracts() {
         return contractsDao.findAll();
+    }
+
+    public List<PatientCard> findAllPatientCard(Contract contract) {
+        return contractsDao.findAllPatientCard(contract);
     }
 
 

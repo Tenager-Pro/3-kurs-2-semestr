@@ -17,7 +17,7 @@ public class Contract extends BaseEntity{
     @Column (name = "create_date")
     private Date createDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
@@ -30,14 +30,12 @@ public class Contract extends BaseEntity{
         this.totalCost = totalCost;
         this.createDate = createDate;
         this.patient = patient;
-        this.patientCards = patientCards;
     }
     public Contract(String numberContract, int totalCost, Date createDate, Patient patient, List<PatientCard> patientCards) {
         this.numberContract = numberContract;
         this.totalCost = totalCost;
         this.createDate = createDate;
         this.patient = patient;
-        this.patientCards = patientCards;
     }
 
     public Contract() {

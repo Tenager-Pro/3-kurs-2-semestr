@@ -1,5 +1,7 @@
 package dao;
 import models.Contract;
+import models.Patient;
+import models.PatientCard;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
@@ -36,9 +38,20 @@ public class ContractDao {
 
     public List<Contract> findAll() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
         List<Contract> contracts = (List<Contract>)  session.createQuery("From Contract").list();
         session.close();
         return contracts;
+    }
+
+    public List<PatientCard> findAllPatientCard(Contract contract) {
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        var query = session.createQuery("FROM PatientCard WHERE contract=:contract");
+        query.setParameter("contract", contract);
+        List<PatientCard> patientCards = (List<PatientCard>) query.list();
+
+        session.close();
+        return patientCards;
     }
 
 

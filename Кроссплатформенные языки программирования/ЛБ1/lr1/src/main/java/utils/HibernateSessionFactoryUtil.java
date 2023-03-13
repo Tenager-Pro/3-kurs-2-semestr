@@ -1,12 +1,11 @@
+
 package utils;
 
-import models.Patient;
-import models.Contract;
-import models.PatientCard;
-import models.Doctor;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
+        import models.*;
+        import org.hibernate.Session;
+        import org.hibernate.SessionFactory;
+        import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+        import org.hibernate.cfg.Configuration;
 
 public class HibernateSessionFactoryUtil {
     private static SessionFactory sessionFactory;
@@ -30,5 +29,16 @@ public class HibernateSessionFactoryUtil {
         }
         return sessionFactory;
     }
+
+    public static Session getSession() {
+        Session session = getSessionFactory().getCurrentSession();
+
+        if(session == null || !session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
+
+        return session;
+    }
 }
+
 

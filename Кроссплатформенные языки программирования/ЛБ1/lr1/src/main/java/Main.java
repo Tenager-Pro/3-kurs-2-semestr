@@ -6,8 +6,8 @@ import services.ContractService;
 import services.DoctorService;
 import services.PatientCardService;
 import services.PatientService;
+import java.util.*;
 
-import java.util.List;
 import java.util.Collections;
 import java.util.Scanner;
 import java.sql.SQLException;
@@ -22,8 +22,10 @@ public class Main {
     public static ContractService contractService = new ContractService();
     public static PatientCardService patientCardService = new PatientCardService();
 
+
+
     public static void SystemPause() {
-        System.out.println();
+
         System.out.println("Нажмите для продолжения ...");
         new java.util.Scanner(System.in).nextLine();
     }
@@ -50,8 +52,8 @@ public class Main {
                     patientCard.getNameProc(),
                     patientCard.getCreateDate(),
                     patientCard.getPrice(),
-                    patientCard.getDoctor(),
-                    patientCard.getContract());
+                    patientCard.getDoctor().getId(),
+                    patientCard.getContract().getId());
             System.out.println();
         }
     }
@@ -122,8 +124,7 @@ public class Main {
                     contract.getNumberContract(),
                     contract.getCreateDate().toString().substring(0, 10),
                     contract.getPatient().getId(),
-                    contract.getPatientCards(),
-                    contract.getTotalCost());
+                    contract.getPatientCards());
             System.out.println();
         }
     }

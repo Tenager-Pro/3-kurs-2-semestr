@@ -37,9 +37,9 @@ public class PatientDao {
         session.close();
     }
 
-//    public Contract findContractById(int id) {
-//        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Contract.class, id);
-//    }
+    public Contract findContractById(int id) {
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Contract.class, id);
+    }
 
     public List<Patient> findAll() {
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();

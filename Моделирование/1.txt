@@ -1,0 +1,35 @@
+import numpy as np
+import math
+
+def secondEx():
+    x=1
+    h=0.1
+    for i in range(10,20,1):
+        x=round(x,1)
+        func = math.exp(3*x)
+        func2 = math.exp(3 * (x+h))
+        func3 = math.exp(3 * (x + 2*h))
+        print(func)
+        derivative=(-3*func + 4*func2 - func3)/(2*h) + h**2/3
+        print("E=",str(derivative*10000),"10^-6")
+        h/=2
+        x+=h
+
+
+# Press the green button in the gutter to run the script.
+if __name__ == '__main__':
+    print("y","y`")
+
+    var = np.poly1d([1,3])
+    print("Polynomial function, f(x):\n", var)
+    derivative = var.deriv()
+    derivative2 = derivative.deriv()
+    print("Derivative, f(x)'=", derivative)
+    for i in range(10,20,1):
+        x=i*0.1
+        x=round(x,1)
+        #print("When x="+str(x)+"  f(x)'=", derivative(x)," f(x) O(h) ", ,"Погр O(h) ",str(derivative(x)-),"  f(x)''=",
+        #derivative2(x)," f(x) O(h) ", ,"Погр O(h) ",str(derivative2(x)-))
+
+    print("Second Ex")
+    secondEx()
