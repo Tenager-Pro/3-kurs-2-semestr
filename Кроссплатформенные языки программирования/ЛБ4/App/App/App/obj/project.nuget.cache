@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "dgSpecHash": "jTuI0kbUQgDLETz49YaGtHpjmATGB02HWSGQ1WE+TPRDMqb9F+XQJ4koCuJ2TVIbZWiahzqczg9dsthXlg5HqQ==",
+  "success": false,
+  "projectFilePath": "D:\\3-kurs-2-semestr\\Кроссплатформенные языки программирования\\ЛБ4\\App\\App\\App\\App.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\artem\\.nuget\\packages\\microsoft.netcore.app\\1.0.0\\microsoft.netcore.app.1.0.0.nupkg.sha512",
+    "C:\\Users\\artem\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\artem\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\artem\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\artem\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\artem\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1604",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Зависимость проекта Microsoft.NETCore.App не содержит включенную нижнюю границу. Включите нижнюю границу в версию зависимости, чтобы обеспечить согласованные результаты восстановления.",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Пакет Microsoft.NETCore.App 1.0.0 несовместим с netstandard2.0 (.NETStandard,Version=v2.0). Пакет Microsoft.NETCore.App 1.0.0 поддерживает: netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    }
+  ]
+}

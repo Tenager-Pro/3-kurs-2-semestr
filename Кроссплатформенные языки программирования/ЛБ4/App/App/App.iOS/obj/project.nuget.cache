@@ -1,0 +1,63 @@
+{
+  "version": 2,
+  "dgSpecHash": "MX+HMOLB5JvDJ1pLwY1xYGz250gXvI0Ma3whrkj/WHNYu07QRRefGzemT2TbPzN/yv0HmHAaRGfOjHGillbsuQ==",
+  "success": false,
+  "projectFilePath": "D:\\3-kurs-2-semestr\\Кроссплатформенные языки программирования\\ЛБ4\\App\\App\\App.iOS\\App.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\artem\\.nuget\\packages\\microsoft.netcore.app\\1.0.0\\microsoft.netcore.app.1.0.0.nupkg.sha512",
+    "C:\\Users\\artem\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\artem\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\artem\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1602",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "App не задает включенную нижнюю границу для зависимости Microsoft.NETCore.App. Использовано наилучшее приближенное соответствие Microsoft.NETCore.App 1.0.0.",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Пакет Microsoft.NETCore.App 1.0.0 несовместим с xamarinios10 (Xamarin.iOS,Version=v1.0). Пакет Microsoft.NETCore.App 1.0.0 поддерживает: netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Пакет Microsoft.NETCore.App 1.0.0 несовместим с xamarinios10 (Xamarin.iOS,Version=v1.0) / win. Пакет Microsoft.NETCore.App 1.0.0 поддерживает: netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Пакет Microsoft.NETCore.App 1.0.0 несовместим с xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x64. Пакет Microsoft.NETCore.App 1.0.0 поддерживает: netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win-x64"
+      ]
+    },
+    {
+      "code": "NU1202",
+      "level": "Error",
+      "message": "Пакет Microsoft.NETCore.App 1.0.0 несовместим с xamarinios10 (Xamarin.iOS,Version=v1.0) / win-x86. Пакет Microsoft.NETCore.App 1.0.0 поддерживает: netcoreapp1.0 (.NETCoreApp,Version=v1.0)",
+      "libraryId": "Microsoft.NETCore.App",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
+}
