@@ -25,7 +25,7 @@ class DataBaseHandler(var context: Context) : SQLiteOpenHelper(context, DATABASE
                 COL_EDUCATION+" VARCHAR(256),"+
                 COL_POST+" VARCHAR(256),"+
                 COL_WAGES+"Integer,"+
-                COL_EXPERIENCE+" Integer"+")";
+                COL_EXPERIENCE+" Integer"+");";
 
         db?.execSQL(createTable)
     }

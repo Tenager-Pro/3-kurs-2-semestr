@@ -1,0 +1,15 @@
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\bin\Debug\netstandard2.0\App1.deps.json
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\bin\Debug\netstandard2.0\App1.dll
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\bin\Debug\netstandard2.0\App1.pdb
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\App1.csproj.AssemblyReference.cache
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\App1.GeneratedMSBuildEditorConfig.editorconfig
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\App1.AssemblyInfoInputs.cache
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\App1.AssemblyInfo.cs
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\App1.csproj.CoreCompileInputs.cache
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\XamlC.stamp
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\App1.dll
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\refint\App1.dll
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\App1.pdb
+D:\3-kurs-2-semestr\Кроссплатформенные языки программирования\ЛБ4\App1\App1\App1\obj\Debug\netstandard2.0\ref\App1.dll
