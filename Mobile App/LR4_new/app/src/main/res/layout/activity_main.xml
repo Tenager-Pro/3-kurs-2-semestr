@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Запрос №1"
+        android:onClick="ex1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Запрос №2"
+        android:onClick="ex2"
         app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
@@ -31,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="Запрос №3"
+        android:onClick="ex3"
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
 
@@ -40,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="39dp"
         android:text="Запрос №4"
+        android:onClick="ex4"
         app:layout_constraintStart_toStartOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
@@ -49,6 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="37dp"
         android:text="Запрос №5"
+        android:onClick="ex5"
         app:layout_constraintStart_toStartOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/button4" />
 
@@ -58,6 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="31dp"
         android:text="Запрос №6"
+        android:onClick="ex6"
         app:layout_constraintStart_toStartOf="@+id/button5"
         app:layout_constraintTop_toBottomOf="@+id/button5" />
 
@@ -67,6 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="46dp"
         android:text="Запрос №7"
+        android:onClick="ex7"
         app:layout_constraintBottom_toTopOf="@+id/button8"
         app:layout_constraintStart_toStartOf="@+id/button8" />
 
@@ -76,19 +83,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="53dp"
         android:text="Запрос №8"
+        android:onClick="ex8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginBottom="65dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

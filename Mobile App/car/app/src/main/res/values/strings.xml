@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Base data</string>
+    <string name="line_name1">gender</string>
+    <string name="line_name2">age</string>
+    <string name="line_name3">education</string>
+    <string name="line_name4">post</string>
+    <string name="line_name5">wages</string>
+    <string name="line_name6">experience</string>
+</resources>

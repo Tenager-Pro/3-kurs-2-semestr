@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">Date</string>
+    <string name="widget_name">Date</string>
+    <string name="widget_text">Hello, Artem</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="blue">Blue</string>
+    <string name="ok">Ok</string>
+</resources>

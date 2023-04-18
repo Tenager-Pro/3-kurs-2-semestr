@@ -20,10 +20,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.myapplication.Ex2" />
-        <activity android:name="com.example.myapplication.Ex4" />
-        <activity android:name="com.example.myapplication.Ex6" />
-        <activity android:name="com.example.myapplication.Ex7" />
+
+        <activity
+            android:name="com.example.myapplication.ListActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.ListView" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
