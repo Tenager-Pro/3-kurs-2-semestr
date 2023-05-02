@@ -1,0 +1,21 @@
+﻿  Source.cpp
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\Source.cpp(11,29): warning C4101: i: неиспользованная локальная переменная
+  SourceClient.cpp
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceClient.cpp(90,90): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceClient.cpp(58,9): error C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceClient.cpp(59,37): error C4996: 'inet_addr': Use inet_pton() or InetPton() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceClient.cpp(61,19): error C4996: 'gethostbyname': Use getaddrinfo() or GetAddrInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceClient.cpp(77,9): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceClient.cpp(82,9): error C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceClient.cpp(84,9): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceClient.cpp(96,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceClient.cpp(133,9): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceClient.cpp(134,16): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  SourceServer.cpp
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceServer.cpp(98,64): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceServer.cpp(108,61): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceServer.cpp(67,15): error C4996: 'gethostbyaddr': Use getnameinfo() or GetNameInfoW() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceServer.cpp(68,85): error C4996: 'inet_ntoa': Use inet_ntop() or InetNtop() instead or define _WINSOCK_DEPRECATED_NO_WARNINGS to disable deprecated API warnings
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceServer.cpp(84,16): error C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+D:\3-kurs-2-semestr\Операционные системы\ДЗ\Project1\Project1\SourceServer.cpp(106,13): error C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Создание кода...

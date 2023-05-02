@@ -1,10 +1,5 @@
 <resources>
-
-    <string name="app_name">Date</string>
-    <string name="widget_name">Date</string>
-    <string name="widget_text">Hello, Artem</string>
-    <string name="red">Red</string>
-    <string name="green">Green</string>
-    <string name="blue">Blue</string>
-    <string name="ok">Ok</string>
+    <string name="app_name">LR_7</string>
+    <string name="widget_name">My widget</string>
+    <string name="widget_text">Hello,Android</string>
 </resources>
