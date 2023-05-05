@@ -1,19 +1,23 @@
 package com.example.myapplication
 
+import android.content.ContentValues.TAG
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         title = "SwipeRefreshLayout"
         val btnStart = findViewById<Button>(R.id.button_start)
@@ -30,12 +34,12 @@ class MainActivity : AppCompatActivity() {
         // запуск службы
         btnStart.setOnClickListener(object: View.OnClickListener {
             override fun onClick(view: View) {
-                val serviceIntent:Intent = Intent(this@MainActivity, MyService::class.java)
-                serviceIntent.putExtra("editText", editText.text);
+                val serviceIntent: Intent = Intent(this@MainActivity, MyService::class.java)
+
+                serviceIntent.putExtra("time", editText.text.toString());
                 serviceIntent.putExtra("progress", (seekBar.progress.toFloat()/100).toString());
 
                 val lp = window.attributes
-                editText.setText(seekBar.progress.toString())
                 lp.screenBrightness = (seekBar.progress.toFloat()/100).toFloat()
                 window.attributes = lp
         // используем явный вызов службы
@@ -49,5 +53,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 
 }
