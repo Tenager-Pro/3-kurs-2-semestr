@@ -47,7 +47,7 @@ class Ui_Authorithation(object):
         self.label_2 = QtWidgets.QLabel(self.gridLayoutWidget_4)
         self.label_2.setStyleSheet("")
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap("../img/1.png"))
+        self.label_2.setPixmap(QtGui.QPixmap("./img/1.png"))
         self.label_2.setObjectName("label_2")
         self.gridLayout_4.addWidget(self.label_2, 1, 1, 1, 1)
         self.gridLayout_3 = QtWidgets.QGridLayout()
