@@ -48,6 +48,7 @@ internal fun updateAppWidget(
 ) {
     val intent = Intent(context, MyWidgetConfigureActivity::class.java)
 
+
     val widgetText = loadTitlePref(context, appWidgetId)
     // Construct the RemoteViews object
     val views = RemoteViews(context.packageName, R.layout.my_widget)

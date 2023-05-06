@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageButton
 import com.example.myapplication.databinding.MyWidgetConfigureBinding
 
 /**
@@ -14,6 +15,8 @@ import com.example.myapplication.databinding.MyWidgetConfigureBinding
  */
 class MyWidgetConfigureActivity : Activity() {
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
+    var text_color: String = "FFFFFFFF"
+    var color: String = "00000000"
     private lateinit var appWidgetText: EditText
     private var onClickListener = View.OnClickListener {
         val context = this@MyWidgetConfigureActivity
@@ -29,6 +32,8 @@ class MyWidgetConfigureActivity : Activity() {
         // Make sure we pass back the original appWidgetId
         val resultValue = Intent()
         resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+        resultValue.putExtra("color", color)
+        resultValue.putExtra("color_text", text_color)
         setResult(RESULT_OK, resultValue)
         finish()
     }
@@ -40,7 +45,22 @@ class MyWidgetConfigureActivity : Activity() {
         // Set the result to CANCELED.  This will cause the widget host to cancel
         // out of the widget placement if the user presses the back button.
         setResult(RESULT_CANCELED)
-
+        val color_text_1 = findViewById<ImageButton>(R.id.imageButton)
+        val color_text_2 = findViewById<ImageButton>(R.id.imageButton2)
+        val color_text_5 = findViewById<ImageButton>(R.id.imageButton5)
+        val color_text_6 = findViewById<ImageButton>(R.id.imageButton6)
+        color_text_1.setOnClickListener{
+            color = "FF03DAC5"
+        }
+        color_text_2.setOnClickListener{
+            color = "FFBB86FC"
+        }
+        color_text_5.setOnClickListener{
+            text_color = "FF6200EE"
+        }
+        color_text_6.setOnClickListener{
+            text_color = "FF03DAC5"
+        }
         binding = MyWidgetConfigureBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
