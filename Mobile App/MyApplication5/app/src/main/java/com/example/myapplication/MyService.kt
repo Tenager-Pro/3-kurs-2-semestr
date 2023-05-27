@@ -2,11 +2,14 @@ package com.example.myapplication
 
 import android.app.PendingIntent.getActivity
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.CountDownTimer
 import android.os.IBinder
 import android.provider.Settings
+import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 
 
@@ -49,9 +52,11 @@ class MyService : Service() {
             override fun onFinish() {
                 System.out.println("done")
                 System.out.println(brightnessInt.toString())
-                Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
-                Settings.System.putInt(getContentResolver(), Settings.System.SCREEN_BRIGHTNESS, brightnessInt);
+                val layoutParams = WindowManager.LayoutParams()
+                val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+                val currentBrightness = Settings.System.getInt(contentResolver, Settings.System.SCREEN_BRIGHTNESS)
+
+
 
             }
         }

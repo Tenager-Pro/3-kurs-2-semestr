@@ -2,6 +2,7 @@ package com.example.myapplication
 
 import android.app.Activity
 import android.appwidget.AppWidgetManager
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -14,9 +15,10 @@ import com.example.myapplication.databinding.MyWidgetConfigureBinding
  * The configuration screen for the [MyWidget] AppWidget.
  */
 class MyWidgetConfigureActivity : Activity() {
+
     private var appWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID
-    var text_color: String = "FFFFFFFF"
-    var color: String = "00000000"
+    var text_color: String = "FFFFFF"
+    var color: String = "000000"
     private lateinit var appWidgetText: EditText
     private var onClickListener = View.OnClickListener {
         val context = this@MyWidgetConfigureActivity
@@ -26,8 +28,6 @@ class MyWidgetConfigureActivity : Activity() {
         saveTitlePref(context, appWidgetId, widgetText)
 
         // It is the responsibility of the configuration activity to update the app widget
-        val appWidgetManager = AppWidgetManager.getInstance(context)
-        updateAppWidget(context, appWidgetManager, appWidgetId)
 
         // Make sure we pass back the original appWidgetId
         val resultValue = Intent()
@@ -44,23 +44,8 @@ class MyWidgetConfigureActivity : Activity() {
 
         // Set the result to CANCELED.  This will cause the widget host to cancel
         // out of the widget placement if the user presses the back button.
-        setResult(RESULT_CANCELED)
-        val color_text_1 = findViewById<ImageButton>(R.id.imageButton)
-        val color_text_2 = findViewById<ImageButton>(R.id.imageButton2)
-        val color_text_5 = findViewById<ImageButton>(R.id.imageButton5)
-        val color_text_6 = findViewById<ImageButton>(R.id.imageButton6)
-        color_text_1.setOnClickListener{
-            color = "FF03DAC5"
-        }
-        color_text_2.setOnClickListener{
-            color = "FFBB86FC"
-        }
-        color_text_5.setOnClickListener{
-            text_color = "FF6200EE"
-        }
-        color_text_6.setOnClickListener{
-            text_color = "FF03DAC5"
-        }
+        //setResult(RESULT_CANCELED)
+
         binding = MyWidgetConfigureBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -68,21 +53,40 @@ class MyWidgetConfigureActivity : Activity() {
         binding.addButton.setOnClickListener(onClickListener)
 
         // Find the widget id from the intent.
-        val intent = intent
-        val extras = intent.extras
-        if (extras != null) {
-            appWidgetId = extras.getInt(
-                AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID
-            )
-        }
+        val appWidgetId = intent?.extras?.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID) ?: AppWidgetManager.INVALID_APPWIDGET_ID
 
         // If this activity was started with an intent without an app widget ID, finish with an error.
         if (appWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
             finish()
             return
         }
+        val imageButton = findViewById<ImageButton>(R.id.imageButton)
+        val imageButton2 = findViewById<ImageButton>(R.id.imageButton2)
+        val imageButton5 = findViewById<ImageButton>(R.id.imageButton5)
+        val imageButton6 = findViewById<ImageButton>(R.id.imageButton6)
+        imageButton.setOnClickListener {
+            color = "FFBB86FC"
+        }
+        imageButton2.setOnClickListener {
+            color = "000000"
+        }
+        imageButton5.setOnClickListener {
+            text_color = "FFFFFF"
+        }
+        imageButton6.setOnClickListener {
+            text_color = "000000"
+        }
+        val resultValue = Intent()
+        resultValue.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
+        resultValue.putExtra("color", color)
+        resultValue.putExtra("text_color", text_color)
+        setResult(RESULT_OK, resultValue)
 
-        appWidgetText.setText(loadTitlePref(this@MyWidgetConfigureActivity, appWidgetId))
+//        val appWidgetManager = AppWidgetManager.getInstance(applicationContext)
+//        appWidgetManager.updateAppWidget(appWidgetId, MyWidget.buildRemoteViews(applicationContext, appWidgetId))
+//        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.layout_widget)
+//
+//        appWidgetText.setText(loadTitlePref(this@MyWidgetConfigureActivity, appWidgetId))
     }
 
 }
