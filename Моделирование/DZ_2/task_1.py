@@ -1,32 +1,42 @@
-import matplotlib.pyplot as plt
 import numpy as np
-import math
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
-def U(x, t):
-    pi = np.pi
-    r = 0.0
-    r = 12*math.cos(14*pi*t)*math.sin(2*pi*x) + math.sin(21*pi*t)*math.sin(3*pi*x)
-    print("r=",r)
-    print(2/math.pi+t, "\n")
-    return r
 
-l = 4
-a = 7
+u = lambda x, t, n: \
+    - np.sin(n * x) * 16 / np.pi * np.exp(-27*t) \
+    * (np.exp(-3 * ((pow(n,2) + 9)*t)) * (np.exp(3 * pow(n, 2)*t) - 1) / pow(n, 2)) \
+    * (n * (np.cos(n * np.pi) + 1) / (pow(n, 2) - 9) if n != 3 else 0)
 
-t = [0.0, 0.3, 0.6, 0.68, 0.76]
-color = ['g-', 'b-', 'r-', 'c-', 'y-']
-indx = 0
-for tt in t:
-     x = np.linspace(0, 1.1, num=200)
-     print("x=",x)
-     y = []
-     print("tt=",tt)
-     for i in x:
-        y.append(U(i, tt))
-     plt.plot(x, y, '%s' % color[indx], linewidth=2, label='t = %.1f '% tt)
-     indx+=1
-plt.xlabel('x')
-plt.ylabel('U(x, t)')
-plt.grid(True)
-plt.legend(loc=0)
+
+xs = np.linspace(0, np.pi, 25)
+ts = np.linspace(0, 0.1, 5)
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+X, Y = np.meshgrid(ts, xs)
+
+res = u(Y, X, 1)
+for n in range(2, 16):
+    us = u(Y, X, n)
+    res += us
+
+ax.plot_surface(X, Y, res, rstride=1, cstride=1,
+    cmap='OrRd', edgecolor='none')
+ax.set_xlabel('$t$')
+ax.set_ylabel('$x$')
+ax.set_zlabel('$u$')
+plt.show()
+
+fig = plt.figure()
+ax = plt.axes()
+X, Y = np.meshgrid(ts, xs)
+
+for i in range(len(ts)):
+    plt.plot([xs[i] for j in res[:, i]], res[:, i], label=f"$t={ts[i]:.2f}$")
+
+ax.set_xlabel("$x$")
+ax.set_ylabel("$u(x, t)$")
+plt.legend(framealpha=0.5, frameon=True)
+
 plt.show()
